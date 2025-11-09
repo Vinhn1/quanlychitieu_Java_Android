@@ -2,12 +2,14 @@ package com.example.quanlychitieu.ViewModel;
 
 import android.content.*;
 
+import androidx.lifecycle.*;
+
 import com.example.quanlychitieu.Model.*;
 import com.example.quanlychitieu.Repository.*;
 
 import java.util.*;
 
-public class UserViewModel {
+public class UserViewModel extends ViewModel {
 
     // repository dùng để truy vấn dữ liệu
      private UserRepository repository;
