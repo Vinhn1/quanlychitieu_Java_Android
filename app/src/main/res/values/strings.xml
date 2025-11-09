@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">quanlychitieu</string>
+    <string name="singin"> <font color="#000000"> Bạn chưa có tài khoản? </font><font color="#dc6f31">Đăng ký ngay</font></string>
 </resources>
