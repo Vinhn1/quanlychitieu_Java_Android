@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quanlychitieu">
         <activity
+            android:name=".UI.ResetPassActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.HomeActivity"
             android:exported="false" />
         <activity

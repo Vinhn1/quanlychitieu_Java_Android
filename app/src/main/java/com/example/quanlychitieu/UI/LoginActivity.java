@@ -16,10 +16,10 @@ import com.example.quanlychitieu.databinding.*;
 
 public class LoginActivity extends AppCompatActivity {
 
-    // Khởi tạo viewbinding
+    // Khởi tạo biến viewbinding
     private ActivityLoginBinding binding;
 
-    // Khởi tạo viewmodel
+    // Khởi tạo biến viewmodel
     private UserViewModel userViewModel;
 
     @Override
@@ -30,10 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-        // UserViewModel
-//        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-//        userViewModel.init(this);
+        // // Tạo ViewModel bằng ViewModelProvider
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userViewModel.init(this);
 
         // ==========================================================================================
         // Event khi ng dùng chưa có tài khoản click vào txt Đăng kí
@@ -42,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
         // ==========================================================================================
+        // Khi người dùng click vào đăng nhập
 
+        // ==========================================================================================
+        // Khi click vào Ghi nhớ tài khoản
+
+        // ==========================================================================================
+        // Khi click vào quên mật khẩu
     }
 }
