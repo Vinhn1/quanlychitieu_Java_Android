@@ -1,7 +1,6 @@
 package com.example.quanlychitieu.UI;
 
 import android.os.Bundle;
-import android.view.*;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,20 +11,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.quanlychitieu.R;
 import com.example.quanlychitieu.databinding.*;
 
-public class RegisterActivity extends AppCompatActivity {
-    private ActivityRegisterBinding binding;
-
+public class HomeActivity extends AppCompatActivity {
+    private ActivityHomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        // ==========================================================================================
-        // Event khi click vào nút back
-        binding.backBtn.setOnClickListener(v -> finish());
-        // ==========================================================================================
 
     }
 }
