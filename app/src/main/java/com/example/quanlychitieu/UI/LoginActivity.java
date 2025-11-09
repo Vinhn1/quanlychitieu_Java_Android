@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.quanlychitieu.*;
 import com.example.quanlychitieu.Database.DBHelper.*;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_main);
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
     }
