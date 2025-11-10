@@ -1,5 +1,6 @@
 package com.example.quanlychitieu.Adapter;
 
+import android.content.*;
 import android.view.*;
 import android.widget.*;
 
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.*;
 
 import com.example.quanlychitieu.*;
 import com.example.quanlychitieu.Model.*;
-
+import java.text.DecimalFormat;
 import java.util.*;
 
 // TransactionAdapter.ViewHolder là lớp con quản lý từng item trong danh sách
@@ -16,11 +17,18 @@ import java.util.*;
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
     // Danh sách các giao dịch, khởi tạo rỗng để tránh NullPointerException
     private List<Transaction> transactionList = new ArrayList<>();
-    // map category_id → icon drawable
-    private Map<Integer, Integer> categoryIconMap;
+    private Context context;
 
-    public TransactionAdapter(Map<Integer, Integer> categoryIconMap) {
-        this.categoryIconMap = categoryIconMap;
+    // Định dạng tiền tệ cho VND
+    private DecimalFormat vndFormat = new DecimalFormat("#,###");
+
+    public TransactionAdapter(Context context, List<Transaction> transactionList) {
+        this.context = context;
+        this.transactionList = transactionList;
+    }
+
+    public TransactionAdapter() {
+
     }
 
     // Phương thức cập nhật dữ liệu cho adapter
@@ -45,18 +53,23 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(@NonNull TransactionAdapter.ViewHolder holder, int position) {
         Transaction t = transactionList.get(position);
         // Gán dữ liệu
-        holder.category.setText(t.getCategory_id());
+        holder.category.setText(String.valueOf(t.getCategory_name()));
         holder.note.setText(t.getNote());
         holder.date.setText(t.getCreate_at());
-        holder.amount.setText(String.format("%,.0fđ", t.getAmount()));
+        // Định dạng tiền VND và thêm ký hiệu "đ"
+        String formattedAmount = vndFormat.format(t.getAmount()) + " đ";
+        holder.amount.setText(formattedAmount);
 
-        // Gán icon dựa vào category_id
-        Integer iconRes = categoryIconMap.get(t.getCategory_id());
-        if(iconRes != null){
+
+        // Thay đổi icon và màu sắc amount dựa vào loại giao dịch
+        if("income".equalsIgnoreCase(t.getCategory_type())){
             holder.icon.setImageResource(R.drawable.ic_income);
+            holder.amount.setTextColor(holder.amount.getResources().getColor(R.color.green));
         }else {
             holder.icon.setImageResource(R.drawable.ic_spending);
+            holder.amount.setTextColor(holder.amount.getResources().getColor(R.color.red));
         }
+
     }
 
     // Trả về số lượng item của RecyclerView

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.AddTransactionsActivity">
+    tools:context=".UI.AddTransactionActivity">
 
 
     <LinearLayout
@@ -186,8 +186,11 @@
                     android:hint="6/11/2025"
                     android:paddingTop="12dp"
                     android:textColorHint="@color/darkGrey"
-                    android:inputType="date"/>
+                    android:focusable="false"
+                    android:clickable="true"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/addBtn"
                 style="@style/Widget.AppCompat.Button"

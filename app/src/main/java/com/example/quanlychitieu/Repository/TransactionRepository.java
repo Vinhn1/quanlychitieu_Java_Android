@@ -16,13 +16,13 @@ public class TransactionRepository {
     }
 
     // thêm
-    public long addCategory(Transaction transaction){
+    public long addTransaction(Transaction transaction){
         return transactionDAO.insertTransaction(transaction);
     }
 
     // Lấy toàn bộ danh sách
-    public List<Transaction> getAllTransactions(){
-        return transactionDAO.getAllTransactions();
+    public List<Transaction> getAllTransactionsWithCategory(){
+        return transactionDAO.getAllTransactionsWithCategory();
     }
 
     // Update
