@@ -20,7 +20,7 @@ import com.example.quanlychitieu.databinding.*;
 
 import java.util.*;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements TransactionAdapter.OnItemClickListener {
     // tạo biến binding
     private ActivityHomeBinding binding;
     //  Tạo biến adapter
@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(TransactionViewModel.class);
 
         // Khởi tạo adapter và gán cho RecyclerView
-        adapter = new TransactionAdapter();
+        adapter = new TransactionAdapter(this, this);
         binding.rvTransactions.setLayoutManager(new LinearLayoutManager(this));
         binding.rvTransactions.setAdapter(adapter);
 
@@ -85,4 +85,30 @@ public class HomeActivity extends AppCompatActivity {
         // mỗi khi quay lại, load lại dữ liệu
         viewModel.loadData();
     }
+
+    // Sự kiện khi click vào item
+    @Override
+    public void onEditClick(Transaction transaction) {
+        // Mở màn hình chỉnh sửa với dữ liệu của transaction
+        Intent intent = new Intent(this, EditTransactionsActivity.class);
+        intent.putExtra("transaction_id", transaction.getTransaction_id());
+        intent.putExtra("category_id", transaction.getCategory_id());
+        intent.putExtra("amount", transaction.getAmount());
+        intent.putExtra("note", transaction.getNote());
+        intent.putExtra("create_at", transaction.getCreate_at());
+        intent.putExtra("category_name", transaction.getCategory_name());
+        intent.putExtra("category_type", transaction.getCategory_type());
+        startActivity(intent);
+    }
+
+    // Xử lý sự kiện xóa khi long click vào item
+    @Override
+    public void onDeleteClick(Transaction transaction) {
+        // Gọi ViewModel để xóa transaction
+        viewModel.deleteTransaction(transaction.getTransaction_id());
+    }
+
+
+
+
 }

@@ -36,6 +36,7 @@ public class AddTransactionActivity extends AppCompatActivity {
         // Khởi tạo tablayout
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Chi tiêu"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Thu nhập"));
+        binding.backBtn.setOnClickListener(v -> finish());
         // ==========================================================================================
         // Khi click vào nút thêm
         binding.addBtn.setOnClickListener(new View.OnClickListener() {

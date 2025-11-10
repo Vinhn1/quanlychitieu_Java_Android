@@ -41,24 +41,25 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
         android:padding="8dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Số dư:"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Số dư:"-->
+<!--        android:textSize="28sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:gravity="center"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/balanceTxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="0.00"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_marginBottom="80dp"/>
+<!--    <TextView-->
+<!--        android:id="@+id/balanceTxt"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="0.00"-->
+<!--        android:textSize="24sp"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginBottom="80dp"/>-->
 </LinearLayout>
