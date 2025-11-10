@@ -1,6 +1,8 @@
 package com.example.quanlychitieu.UI;
 
+import android.content.*;
 import android.os.Bundle;
+import android.view.*;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,17 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // ==========================================================================================
+        // khi click vào nút thêm
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, AddTransactionActivity.class);
+                startActivity(intent);
+            }
+        });
+        // ==========================================================================================
 
     }
 }
