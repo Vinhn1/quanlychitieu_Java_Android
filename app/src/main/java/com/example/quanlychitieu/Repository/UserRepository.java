@@ -37,4 +37,16 @@ public class UserRepository {
     public int deleteUser(int userId){
         return userDAO.deleteUser(userId);
     }
+
+    // Kt email
+    public User findByEmail(String email){
+        List<User> users = userDAO.getAllUser();
+        for(User user : users){
+            if(user.getEmail().equalsIgnoreCase(email)){
+                return user;
+            }
+        }
+        // Không tìm thấy
+        return null;
+    }
 }

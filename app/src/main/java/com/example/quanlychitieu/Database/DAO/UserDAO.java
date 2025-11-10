@@ -58,4 +58,5 @@ public class UserDAO {
     public int deleteUser(int userId){
         return db.delete("Users", "user_id = ?", new String[]{String.valueOf(userId)});
     }
+
 }

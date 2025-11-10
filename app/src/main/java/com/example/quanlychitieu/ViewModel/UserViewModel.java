@@ -87,5 +87,14 @@ public class UserViewModel extends ViewModel {
     }
 
     // ==========================================================================================
+    // CheckEmail
+    public User findByEmail(String email){
+         return repository.findByEmail(email);
+    }
+
+    // Update User
+    public int updateUser(User user){
+         return repository.updateUser(user);
+    }
 
 }
