@@ -50,13 +50,13 @@ public class UserViewModel extends ViewModel {
 
     // ==========================================================================================
     // Đăng nhập
-    public boolean login(String email, String password){
+    public boolean login(String name, String password){
          // Lấy danh sách tất cả người dùng hiện có trong hệ thống
         List<User> users = repository.getAllUser();
         // Duyệt qua từng người dùng để kiểm tra thông tin đăng nhập
         for(User user : users){
             // So sánh email (bỏ qua chữ hoa/thường) và mật khẩu (so sánh chính xác)
-            if(user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)){
+            if(user.getName().equalsIgnoreCase(name) && user.getPassword().equals(password)){
                 //  Nếu khớp → lưu lại phiên đăng nhập bằng user_id
                 saveLoginSession(user.getUser_id());
                 // // Đăng nhập thành công → trả về true

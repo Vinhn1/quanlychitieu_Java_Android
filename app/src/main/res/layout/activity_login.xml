@@ -17,7 +17,7 @@
         android:text="Quên mật khẩu?"
         android:textColor="@color/orange"
         app:layout_constraintBottom_toBottomOf="@+id/rememberLoginChkBox"
-        app:layout_constraintEnd_toEndOf="@+id/TextInputLayout"
+        app:layout_constraintEnd_toEndOf="@+id/passTextInputLayout"
         app:layout_constraintStart_toEndOf="@+id/rememberLoginChkBox"
         app:layout_constraintTop_toTopOf="@+id/rememberLoginChkBox" />
     <!--    CheckBox Ghi nhớ đăng nhập -->
@@ -29,8 +29,8 @@
         android:layout_marginTop="8dp"
         android:text="Ghi nhớ đăng nhập"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/TextInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/TextInputLayout" />
+        app:layout_constraintStart_toStartOf="@+id/passTextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passTextInputLayout" />
     <!-- UserName   -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userTextInputLayout"
@@ -62,7 +62,7 @@
 
     <!--    Password -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TextInputLayout"
+        android:id="@+id/passTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="password_toggle"
@@ -127,21 +127,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+    <!-- Button -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
-        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/organe_bg"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:text="Đăng Nhập"
+        android:gravity="center"
         android:textColor="@color/white"
+        android:text="Đăng Nhập"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
     <TextView
         android:id="@+id/registerTxt"
