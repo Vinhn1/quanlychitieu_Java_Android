@@ -28,24 +28,6 @@ public class TransactionDAO {
         return db.insert("Transactions", null, values);
     }
 
-    // Lấy toàn bộ danh sách
-//    public List<Transaction> getAllTransactions(){
-//        List<Transaction> list = new ArrayList<>();
-//        Cursor cursor = db.rawQuery("SELECT * FROM Transactions", null);
-//        while (cursor.moveToNext()){
-//            Transaction transaction = new Transaction(
-//                    cursor.getInt(0),
-//                    cursor.getInt(1),
-//                    cursor.getInt(2),
-//                    cursor.getDouble(3),
-//                    cursor.getString(4),
-//                    cursor.getString(5)
-//            );
-//            list.add(transaction);
-//        }
-//        cursor.close();
-//        return list;
-//    }
 
     // Lấy toàn bộ transactions kèm tên category
     public List<Transaction> getAllTransactionsWithCategory() {
@@ -80,6 +62,8 @@ public class TransactionDAO {
         ContentValues values = new ContentValues();
         values.put("amount", transaction.getAmount());
         values.put("note", transaction.getNote());
+        values.put("category_id", transaction.getCategory_id());
+        values.put("create_at", transaction.getCreate_at());
         return db.update("Transactions", values, "transaction_id = ?", new String[]{String.valueOf(transaction.getTransaction_id())});
     }
 
